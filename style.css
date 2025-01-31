@@ -1,0 +1,13 @@
+html {
+    box-sizing: border-box;
+}
+
+* {
+    outline: 2px solid black;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
