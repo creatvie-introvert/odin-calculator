@@ -2,12 +2,42 @@ html {
     box-sizing: border-box;
 }
 
-* {
-    outline: 2px solid black;
-}
+/* * {
+    border: 2px solid black;
+} */
 
 *,
 *::before,
 *::after {
     box-sizing: inherit;
+}
+
+.calculator-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    gap: 10px;
+    background-color: black;
+    width: 350px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.display {
+    width: 315px;
+    height: 75px;
+    text-align: right;
+    padding: 10px;
+    font-size: 48px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: grey;
+}
+
+button {
+    width: 75px;
+    height: 75px;
+    border-radius: 8px;
 }
