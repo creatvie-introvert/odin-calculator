@@ -36,8 +36,29 @@ html {
     background-color: grey;
 }
 
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.row {
+    display: flex;
+    gap: 5px;
+}
+
 button {
     width: 75px;
     height: 75px;
     border-radius: 8px;
+    font-size: 24px;
+}
+
+button:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.95);
 }
