@@ -99,7 +99,9 @@ const calculateResult = function() {
             break;
     }
 
-    display.textContent = displayValue;
+    // display.textContent = displayValue;
+    displayValue = parseFloat(displayValue.toFixed(6));
+    updateDisplay();
 
     // Store result as firstNumber to allow continued operations
     firstNumber = displayValue;
@@ -121,9 +123,17 @@ const toggleSign = function() {
     displayValue = parseFloat(displayValue) * -1;
 
     display.textContent = displayValue;
-    console.log('u pressed +/-');
 };
 
 const appendDecimal = function() {
+    if (!displayValue.toString().includes('.')) {
+        displayValue += '.';
+        display.textContent = displayValue
+    }
     console.log('u pressed the decimal point');
+};
+
+const updateDisplay = function() {
+    const maxLength = 10;
+    display.textContent = displayValue.toString().slice(0, maxLength);
 };
