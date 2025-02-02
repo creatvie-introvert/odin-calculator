@@ -11,48 +11,61 @@ btn.forEach(button => {
     });
 });
 
+let display = document.querySelector('.display');
+
 const handleButtonClick = function(button) {
     console.log(button);
     if (!isNaN(button)) {
         appendNumber(button);
     } else if (
-        button === "add" || 
-        button === "subtract" || 
-        button === "multiply" || 
-        button === "divide"
+        button === 'add' || 
+        button === 'subtract' || 
+        button === 'multiply' || 
+        button === 'divide'
     ) {
         chooseOperator(button);
-    } else if (button === "equals") {
+    } else if (button === 'equals') {
         calculateResult();
-    } else if (button === "clear") {
+    } else if (button === 'clear') {
         clearCalculator();
-    } else if (button === "toggle-sign") {
+    } else if (button === 'toggle-sign') {
         toggleSign();
-    } else if (button === "decimal") {
+    } else if (button === 'decimal') {
         appendDecimal()
     }
 };
 
 const appendNumber = function(number) {
-    console.log("you clicked number" + " " + number);
+    if (shouldResetDisplay === true) {
+        displayValue = 0;
+        shouldResetDisplay = false;
+    }
+
+    if (displayValue === 0) {
+        displayValue = number;
+    } else {
+        displayValue = displayValue + number;
+    }
+    console.log(displayValue);
+    display.textContent = displayValue;
 };
 
 const chooseOperator = function(operator) {
-    console.log("u selected a operator button" + " " + operator);
+    console.log('u selected a operator button' + ' ' + operator);
 };
 
 const calculateResult = function() {
-    console.log("you pressed equals");
+    console.log('you pressed equals');
 };
 
 const clearCalculator = function() {
-    console.log("u pressed all clear");
+    console.log('u pressed all clear');
 };
 
 const toggleSign = function() {
-    console.log("u pressed +/-");
+    console.log('u pressed +/-');
 };
 
 const appendDecimal = function() {
-    console.log("u pressed the decimal point");
+    console.log('u pressed the decimal point');
 };
