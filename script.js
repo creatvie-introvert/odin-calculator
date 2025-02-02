@@ -115,7 +115,12 @@ const calculateResult = function() {
 };
 
 const clearCalculator = function() {
-    console.log('u pressed all clear');
+    displayValue = 0;
+    firstNumber = null;
+    operator = null;
+    shouldResetDisplay = false;
+
+    display.textContent = displayValue;
 };
 
 const toggleSign = function() {
