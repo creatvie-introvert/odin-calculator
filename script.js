@@ -46,7 +46,6 @@ const appendNumber = function(number) {
     } else {
         displayValue = displayValue + number;
     }
-    console.log(displayValue);
     display.textContent = displayValue;
 };
 
