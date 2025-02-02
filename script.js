@@ -63,9 +63,10 @@ const chooseOperator = function(selectedOperator) {
 
     // Store first number if not already set
     if (firstNumber === null) {
-        firstNumber = displayValue;
+        firstNumber = parseFloat(displayValue); // Ensure firstNumber is stored as a number
     } else { 
         calculateResult()   // If first number exists, perfom calculation before storing new operator
+        firstNumber = parseFloat(displayValue);
     }
 
     // Store operator and prepare for next number input
@@ -76,6 +77,41 @@ const chooseOperator = function(selectedOperator) {
 
 const calculateResult = function() {
     console.log('you pressed equals');
+    // Ensure there's a first number and an operator before calculating
+    if (firstNumber === null || operator === null) {
+        return;
+    }
+
+    // Convert displayValue to secondNumber
+    secondNumber = parseFloat(displayValue);
+
+    // Perform calculation based on the operator
+    switch (operator) {
+        case "add":
+            displayValue = firstNumber + secondNumber;
+            break;
+        case "subtract":
+            displayValue = firstNumber - secondNumber;
+            break;
+        case "multiply":
+            displayValue = firstNumber * secondNumber;
+            break;
+        case "divide":
+            if (secondNumber === 0) {
+                alert("It is not mathematically possible to divide by 0");
+                return;
+            }
+            displayValue = firstNumber / secondNumber;
+            break;
+    }
+
+    // Update the display with the result
+    display.textContent = displayValue;
+
+    // Reset for next calculation
+    firstNumber = null;
+    operator = null;
+    shouldResetDisplay = true;
 };
 
 const clearCalculator = function() {
